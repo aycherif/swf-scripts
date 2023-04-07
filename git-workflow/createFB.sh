@@ -155,11 +155,11 @@ function repoCleanup() {
 	else
         echo "Repo already exists, skipping clone"
     fi
-	# if [ ! -d "repo-projects/${repo_name}" ]; then
-    # git clone git@github.com:Meeds-io/kernel.git repo-projects/${repo_name}
-	# else
-    #     echo "Repo already exists, skipping clone"
-    # fi
+	if [ ! -d "repo-projects/${repo_name}" ]; then
+    git clone git@github.com:Meeds-io/kernel.git repo-projects/${repo_name}
+	else
+        echo "Repo already exists, skipping clone"
+    fi
 	# if [ ! -d "repo-projectsrepo-projects/${repo_name}" ]; then
     # git clone git@github.com:Meeds-io/core.git repo-projectsrepo-projects/${repo_name}
 	# else
@@ -563,7 +563,7 @@ pushd ${SWF_FB_REPOS}
 
 #Meeds Projects
 createFB gatein-wci
-createFB kernel
+# createFB kernel
 # createFB core
 # createFB ws
 # createFB gatein-pc
