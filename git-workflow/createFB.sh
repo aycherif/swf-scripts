@@ -554,36 +554,49 @@ function replaceProjectAddons() {
 
 function createFB() {
 	local repo_name=$1
-
+		echo "******************"
+		echo "Status ELSE EIRGHT"
+		echo "******************"
+		git status	
 	repoInit ${repo_name}
 	# Remove all branches but the origin one
+		echo "******************"
+		echo "Status ELSE NINE"
+		echo "******************"
+		git status	
 	repoCleanup ${repo_name}
-
+		echo "******************"
+		echo "Status ELSE TEN"
+		echo "******************"
+		git status	
 	replaceProjectVersion ${repo_name}
 	replaceProjectDeps ${repo_name}
 	replaceProjectAddons ${repo_name}
-
+		echo "******************"
+		echo "Status ELSE ELEVEN"
+		echo "******************"
+		git status	
 	# Replace add-on versions in distributions project
 	# case $repo_name in
 	# *-distributions) replaceProjectAddons ${repo_name} ;;
 	# esac
 
 	printf "\e[1;33m# %s\e[m\n" "Commiting and pushing the new $TARGET_BRANCH branch to origin ($repo_name) ..."
+		echo "******************"
+		echo "Status ELSE TWELVE"
+		echo "******************"
+		git status	
 	git commit -m "$ISSUE: Create FB $BRANCH and update projects versions/dependencies" -a
 	# git push $GIT_PUSH_PARAMS origin $TARGET_BRANCH --set-upstream
 
 	if $PUSH; then
 		printf "\e[1;33m# %s\e[m\n" "Pushing commit to ${TARGET_BRANCH} ..."
-		echo "Status one"
-		git status
 		git push $GIT_PUSH_PARAMS origin $TARGET_BRANCH --set-upstream
 		# Return on dev branch only in real runs to easily debug during test phase
 		[ ! -z "{ORIGIN_BRANCH:-}" ] && git checkout $ORIGIN_BRANCH || git checkout $DEFAULT_BRANCH
 		echo "Status one"
 		git status
 	else
-		echo "Status one"
-	    git status
 		printf "\e[1;35m# %s\e[m\n" "Push is disabled (use -p to activate it) ..."
 		printf "\e[1;33m# %s\e[m\n" "Following command would have been executed : |git push $GIT_PUSH_PARAMS origin $TARGET_BRANCH --set-upstream|"
 	fi
