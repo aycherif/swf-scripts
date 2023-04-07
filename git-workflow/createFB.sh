@@ -120,9 +120,7 @@ SCRIPTDIR=$(
 	pwd
 )
 CURRENTDIR=$(pwd)
-ls
 SWF_FB_REPOS=${SWF_FB_REPOS:-$CURRENTDIR}
-
 # PUSH=false
 
 # while getopts "p" opt; do
