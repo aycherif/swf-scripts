@@ -611,8 +611,8 @@ function createFB() {
 pushd ${SWF_FB_REPOS}
 
 #Meeds Projects
-createFB gatein-wci
-# createFB kernel
+# createFB gatein-wci
+createFB kernel
 # createFB core
 # createFB ws
 # createFB gatein-pc
