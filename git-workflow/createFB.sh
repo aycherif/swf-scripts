@@ -548,10 +548,16 @@ function createFB() {
 
 	if $PUSH; then
 		printf "\e[1;33m# %s\e[m\n" "Pushing commit to ${TARGET_BRANCH} ..."
+		echo "Status one"
+		git status
 		git push $GIT_PUSH_PARAMS origin $TARGET_BRANCH --set-upstream
 		# Return on dev branch only in real runs to easily debug during test phase
 		[ ! -z "{ORIGIN_BRANCH:-}" ] && git checkout $ORIGIN_BRANCH || git checkout $DEFAULT_BRANCH
+		echo "Status one"
+		git status
 	else
+		echo "Status one"
+	    git status
 		printf "\e[1;35m# %s\e[m\n" "Push is disabled (use -p to activate it) ..."
 		printf "\e[1;33m# %s\e[m\n" "Following command would have been executed : |git push $GIT_PUSH_PARAMS origin $TARGET_BRANCH --set-upstream|"
 	fi
