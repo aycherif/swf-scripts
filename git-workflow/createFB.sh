@@ -140,7 +140,7 @@ function repoInit() {
 		echo "Status ZERO"
 		echo "******************"
 		git status	
-	# pushd repo-projects/${repo_name}
+	pushd repo-projects/${repo_name}
 }
 
 function repoCleanup() {
