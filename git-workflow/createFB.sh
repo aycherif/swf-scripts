@@ -529,7 +529,7 @@ function replaceProjectAddons() {
 function createFB() {
 	local repo_name=$1
 
-	# repoInit ${repo_name}
+	repoInit ${repo_name}
 	# Remove all branches but the origin one
 	repoCleanup ${repo_name}
 
