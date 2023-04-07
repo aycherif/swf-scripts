@@ -136,6 +136,10 @@ function repoInit() {
 	printf "\e[1;33m########################################\e[m\n"
 	printf "\e[1;33m# Repository: %s\e[m\n" "${repo_name}"
 	printf "\e[1;33m########################################\e[m\n"
+		echo "******************"
+		echo "Status ZERO"
+		echo "******************"
+		git status	
 	# pushd repo-projects/${repo_name}
 }
 
