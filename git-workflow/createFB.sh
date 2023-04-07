@@ -392,6 +392,10 @@ function repoCleanup() {
 	# git checkout $ORIGIN_BRANCH
 	# git branch -D $TARGET_BRANCH
 	echo "remote update"
+	echo "******************"
+	echo "Status one"
+	echo "******************"
+	git status
 	pushd repo-projects/${repo_name}
 	pwd
 	git remote update --prune
@@ -402,15 +406,39 @@ function repoCleanup() {
 	printf "\e[1;33m# %s\e[m\n" "Testing if ${TARGET_BRANCH} branch doesn't already exists and reuse it ($repo_name) ..."
 	set +e
 	GIT_PUSH_PARAMS=""
+	echo "******************"
+	echo "Status two"
+	echo "******************"
+	git status
 	git checkout $TARGET_BRANCH
 	if [ "$?" -ne "0" ]; then
+		echo "******************"
+		echo "Status three"
+		echo "******************"
+		git status	
 		git checkout -b $TARGET_BRANCH
+		echo "******************"
+		echo "Status FOUR"
+		echo "******************"
+		git status
 	else
 		printf "\e[1;35m# %s\e[m\n" "WARNING : the ${TARGET_BRANCH} branch already exists so we will delete it (you have 5 seconds to cancel with CTRL+C) ($repo_name) ..."
 		# sleep 5
+		echo "******************"
+		echo "Status FIVE"
+		echo "******************"
+		git status
 		[ ! -z "{ORIGIN_BRANCH:-}" ] && git checkout $ORIGIN_BRANCH || git checkout $DEFAULT_BRANCH
+		echo "******************"
+		echo "Status SIX"
+		echo "******************"
+		git status
 		git branch -D $TARGET_BRANCH
 		git checkout -b $TARGET_BRANCH
+		echo "******************"
+		echo "Status SEVEN"
+		echo "******************"
+		git status
 		GIT_PUSH_PARAMS="--force"
 	fi
 	popd
