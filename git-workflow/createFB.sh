@@ -562,7 +562,7 @@ function createFB() {
 		printf "\e[1;33m# %s\e[m\n" "Following command would have been executed : |git push $GIT_PUSH_PARAMS origin $TARGET_BRANCH --set-upstream|"
 	fi
 
-	popd
+	# popd
 }
 
 pushd ${SWF_FB_REPOS}
