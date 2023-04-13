@@ -112,11 +112,11 @@ ADDONS_DLP_TARGET_VERSION=1.1.x-$BRANCH-SNAPSHOT
 ADDONS_AGENDA_CONNECTORS_ORIGIN_VERSION=1.2.x-SNAPSHOT
 ADDONS_AGENDA_CONNECTORS_TARGET_VERSION=1.2.x-$BRANCH-SNAPSHOT
 
-function idrsaChmod() {
-	pushd ~/.ssh
-	chmod 600 id_rsa
-	popd
-}
+# function idrsaChmod() {
+# 	pushd ~/.ssh
+# 	chmod 600 id_rsa
+# 	popd
+# }
 
 SCRIPTDIR=$(
 	cd $(dirname "$0")
